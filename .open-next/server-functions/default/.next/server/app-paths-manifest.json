@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/rss/feed.xml/route": "app/rss/feed.xml/route.js",
+  "/rss/feed.json/route": "app/rss/feed.json/route.js",
+  "/page": "app/page.js",
+  "/donate/page": "app/donate/page.js",
+  "/links/page": "app/links/page.js",
+  "/sheets/page": "app/sheets/page.js",
+  "/sheets/[src]/page": "app/sheets/[src]/page.js",
+  "/blog/notes/[slug]/page": "app/blog/notes/[slug]/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/blog/tag/[tag]/page": "app/blog/tag/[tag]/page.js"
+}

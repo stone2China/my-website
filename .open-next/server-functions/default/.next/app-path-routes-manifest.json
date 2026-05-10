@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/rss/feed.xml/route": "/rss/feed.xml",
+  "/rss/feed.json/route": "/rss/feed.json",
+  "/page": "/",
+  "/donate/page": "/donate",
+  "/links/page": "/links",
+  "/sheets/page": "/sheets",
+  "/sheets/[src]/page": "/sheets/[src]",
+  "/blog/notes/[slug]/page": "/blog/notes/[slug]",
+  "/blog/[slug]/page": "/blog/[slug]",
+  "/blog/page": "/blog",
+  "/blog/tag/[tag]/page": "/blog/tag/[tag]"
+}

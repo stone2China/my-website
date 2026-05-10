@@ -1,0 +1,1 @@
+"use strict";exports.id=515,exports.ids=[515],exports.modules={85515:(d,e,f)=>{f.d(e,{default:()=>B});let B='X: 1\r\nM: 4/4\r\nK: D\r\n|:"Fmaj7" [G,f]d Be -ed FB | G,B (de) fd FG | "C" [Da]d Aa -ae DA | [Df]d Af -fd D2 |\r\n| "Fmaj7" [G,f]d Be -ed FB | G,B (de) fd FB | "Asus2" [F,c]F Bc fF cB |1 "E7" [F,_B]2 Ef -fc E2 :|2 "E" [F,_B]8 ||\r\n'}};

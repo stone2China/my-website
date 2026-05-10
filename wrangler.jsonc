@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "stone-web", // 你的 Worker 名称
+  "main": ".open-next/worker.js", // OpenNext 生成的入口文件
+  "compatibility_date": "2024-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets", // 静态资源路径
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

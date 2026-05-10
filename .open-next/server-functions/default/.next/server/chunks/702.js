@@ -1,0 +1,1 @@
+"use strict";exports.id=702,exports.ids=[702],exports.modules={61702:(d,e,C)=>{C.d(e,{default:()=>a});let a='X: 1\r\nM: 4/4\r\nK: C\r\n|: "Cadd9" CG de -ed CG | "Caug(add2)" C^G de -ed C^G | "Fmaj7" FA ce -ec FA | "Cadd9" CG de -ed CG |\r\n| "Bb" _B,_B df -fd _B,_B | "Ab" _A,c _ea -a_e _A,c | "Cadd9" CG de -ed CG :|\r\n'}};

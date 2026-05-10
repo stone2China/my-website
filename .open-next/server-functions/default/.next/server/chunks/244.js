@@ -1,0 +1,1 @@
+"use strict";exports.id=244,exports.ids=[244],exports.modules={46244:(e,G,r)=>{r.d(G,{default:()=>s});let s='X: 1\r\nM: 4/4\r\nK: E\r\n|: "Am7" C>e {F}G>e -e>G B>G | "Am7" C>e {F}G>e -e>G B>G |\r\n| "Csus2" E>F B>F "G" B,>F (d>e) | "Am7" C>G B>e -e>G B>G :|\r\n'}};
