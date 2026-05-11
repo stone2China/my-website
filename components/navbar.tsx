@@ -21,11 +21,7 @@ interface NavbarItem {
 
 const leftList: NavbarItem[] = [
 	{ name: siteName, url: "/" },
-<<<<<<< HEAD
 	{ name: "曲谱", url: "/sheets" },
-=======
-	{ name: "我的歌单", url: "/sheets" },
->>>>>>> 789d1358d11d428c54e9c8c63ffb5f01d973e0c8
 	{ name: "友链", url: "/links" },
 	{ name: "打赏", url: "/donate" },
 ];
