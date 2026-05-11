@@ -5,6 +5,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+<<<<<<< HEAD
+=======
+    "export": "next build",
+>>>>>>> 789d1358d11d428c54e9c8c63ffb5f01d973e0c8
     "start": "next start",
     "lint": "next lint"
   },

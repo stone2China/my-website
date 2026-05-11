@@ -1,8 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+<<<<<<< HEAD
   reactStrictMode: false,
   images: {
+=======
+  output: "export",
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+>>>>>>> 789d1358d11d428c54e9c8c63ffb5f01d973e0c8
     remotePatterns: [
       {
         protocol: "https",
@@ -117,12 +124,15 @@ const nextConfig: NextConfig = {
         hostname: "limening.vercel.app",
         port: "",
         pathname: "/img/base/**"
+<<<<<<< HEAD
       },
       {
         protocol: "https",
         hostname: "qingzhou.dpdns.org",
         port: "",
         pathname: "/**"
+=======
+>>>>>>> 789d1358d11d428c54e9c8c63ffb5f01d973e0c8
       }
     ]
   },
@@ -155,4 +165,8 @@ const nextConfig: NextConfig = {
   },
 };
 
+<<<<<<< HEAD
 export default nextConfig;
+=======
+export default nextConfig;
+>>>>>>> 789d1358d11d428c54e9c8c63ffb5f01d973e0c8

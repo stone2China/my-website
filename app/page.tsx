@@ -1,14 +1,9 @@
 "use client";
-
-import dynamic from "next/dynamic";
 import { Banner } from "./banner";
 import { TechStacks } from "./tech-stacks";
 import { Agent } from "./agent";
-import { OPanel } from "./opanel";
 import { ProjectsTable } from "./projects-table";
 import { GitalkComments } from "@/components/gitalk-comments";
-
-
 export default function Home() {
   return (
     <div className="page-padding pb-10 flex flex-col gap-20 overflow-y-auto overflow-x-hidden [&_span]:font-light">

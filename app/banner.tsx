@@ -25,8 +25,13 @@ export function Banner() {
           src={Avatar.src}
           alt="avatar"/>
         <span className="mt-10 text-lg *:leading-9 max-md:text-center">
+<<<<<<< HEAD
           我是一个热爱硬件开发、furry和Minecraft的学生，<br />
           我还是个飞友呢（˶‾᷄ ⁻̫ ‾᷅˵）
+=======
+          我是一个热爱硬件开发、福瑞和Minecraft的学生，<br />
+          很高兴能见到你！👋
+>>>>>>> 789d1358d11d428c54e9c8c63ffb5f01d973e0c8
         </span>
         <div className="mt-6 flex flex-wrap max-md:justify-center gap-0 [&>a]:text-foreground [&>a]:no-underline [&>a]:rounded-full">
           <Button
@@ -50,7 +55,11 @@ export function Banner() {
             variant="ghost"
             size="icon-lg"
             asChild>
+<<<<<<< HEAD
             <Link href="https://space.bilibili.com/3546714900269973?spm_id_from=333.788.0.0" target="_blank">
+=======
+            <Link href="https://space.bilibili.com/3546714900269973?spm_id_from=333.1007.0.0" target="_blank">
+>>>>>>> 789d1358d11d428c54e9c8c63ffb5f01d973e0c8
               <Tv />
             </Link>
           </Button>
@@ -58,7 +67,11 @@ export function Banner() {
             variant="ghost"
             size="icon-lg"
             asChild>
+<<<<<<< HEAD
             <Link href="stone2_China@outlook.com" target="_blank">
+=======
+            <Link href="mailto:stone2_China@outlook.com" target="_blank">
+>>>>>>> 789d1358d11d428c54e9c8c63ffb5f01d973e0c8
               <Mail />
             </Link>
           </Button>
