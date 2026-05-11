@@ -1,63 +1,10 @@
 [
     {
-        "name": "Ferrum Explorer",
-        "year": 2021,
-        "description": "Ferrum是一个使用 Next.js 和 Typescript 编写的服务器文件管理器，支持<b>文件读写</b>、<b>文件操作</b>、<b>多种格式浏览</b>等等功能，且完全开源。",
-        "url": "https://ferrum-demo.nocp.space",
-        "repo": "nocpiun/ferrum"
-    },
-    {
-        "name": "Snake-ts",
-        "year": 2021,
-        "description": "这是一个用 Typescript 编写的贪吃蛇小游戏，里面不仅包含了贪吃蛇的基本玩法，还有炸弹、糖果等多种道具和玩法。",
-        "url": "https://snake-ts.nocp.space",
-        "repo": "NriotHrreion/Snake-ts"
-    },
-    {
-        "name": "控制台小游戏",
-        "year": 2020,
-        "description": "欢迎来到这个住着小比特与老比特的后台城！在看似平常的一天中，一位黑客入侵了这个后台城，于是发生了许多故事... 这个小游戏较为简陋，因为它只是控制台游戏的一个小Demo。",
-        "url": "https://console-game.nocp.space",
-        "repo": "NriotHrreion/Console-game"
-    },
-    {
-        "name": "HYCDGX 官网",
-        "year": 2022,
-        "description": "一个使用 React 和 Typescript 编写的Minecraft服务器官方网站。",
-        "url": "https://site.hycdgx.com",
-        "repo": "nocpiun/hycdgx"
-    },
-    {
-        "name": "歌词本",
-        "year": 2025,
-        "description": "这是一个网页歌词本，包含陈升、李志的歌词",
-        "url": "https://lyrics.nocp.space",
-        "repo": "NriotHrreion/lyrics-book"
-    },
-    {
-        "name": "Gravity Pong",
-        "year": 2024,
-        "description": "经典游戏《Pong》，但是有重力存在...<br>这是一个在学校机房中被开发出来的小游戏。",
-        "url": "https://nriothrreion.github.io/gravity-pong",
-        "repo": "NriotHrreion/gravity-pong"
-    },
-    {
-        "name": "EasyBedwars",
-        "year": 2023,
-        "description": "一个简单的起床战争服务端插件，基于Bukkit，包含了起床战争游戏的基本玩法。目前有部分功能暂未完工。",
-        "repo": "NriotHrreion/EasyBedwars"
-    },
-    {
-        "name": "ICraft",
-        "year": 2021,
-        "description": "这是Minecraft的2D版本，可以当画板用，或者拿来玩，和别人一起联机游戏。",
-        "url": "https://ic-game-df35eb.netlify.app/client/?map=&player=steven",
-        "repo": "NriotHrreion/ICraft-App"
-    },
-    {
-        "name": "Nocp Startpage",
-        "year": 2020,
-        "description": "一个Chrome浏览器插件，可以使你的浏览器新标签页更加简洁美观。这个项目是我的第一个个人项目。",
-        "repo": "NriotHrreion/Nocp-startpage"
+        "name": "暂无项目",
+        "year": 0,
+        "description": "暂无项目",
+        "url": "www.apple.com.cn",
+        "repo": "无"
     }
 ]
+    

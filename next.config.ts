@@ -117,6 +117,12 @@ const nextConfig: NextConfig = {
         hostname: "limening.vercel.app",
         port: "",
         pathname: "/img/base/**"
+      },
+      {
+        protocol: "https",
+        hostname: "qingzhou.dpdns.org",
+        port: "",
+        pathname: "/**"
       }
     ]
   },

@@ -13,7 +13,7 @@ export function Banner() {
     <section className="pt-40 flex justify-between items-center max-md:justify-center">
       <div className="flex flex-col items-start max-md:items-center max-md:gap-2">
         <SplitText
-          text="Code the future."
+          text="Think Different."
           className="text-5xl font-normal italic overflow-visible"
           delay={150}
           duration={2}
@@ -25,8 +25,8 @@ export function Banner() {
           src={Avatar.src}
           alt="avatar"/>
         <span className="mt-10 text-lg *:leading-9 max-md:text-center">
-          我是一个热爱前端开发、音乐和Minecraft的学生，<br />
-          很高兴能见到你！👋
+          我是一个热爱硬件开发、furry和Minecraft的学生，<br />
+          我还是个飞友呢（˶‾᷄ ⁻̫ ‾᷅˵）
         </span>
         <div className="mt-6 flex flex-wrap max-md:justify-center gap-0 [&>a]:text-foreground [&>a]:no-underline [&>a]:rounded-full">
           <Button
@@ -50,7 +50,7 @@ export function Banner() {
             variant="ghost"
             size="icon-lg"
             asChild>
-            <Link href="https://space.bilibili.com/167995410" target="_blank">
+            <Link href="https://space.bilibili.com/3546714900269973?spm_id_from=333.788.0.0" target="_blank">
               <Tv />
             </Link>
           </Button>
@@ -58,15 +58,7 @@ export function Banner() {
             variant="ghost"
             size="icon-lg"
             asChild>
-            <Link href="https://x.com/norcleeh" target="_blank">
-              𝕏
-            </Link>
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon-lg"
-            asChild>
-            <Link href="mailto:nriot233@gmail.com" target="_blank">
+            <Link href="stone2_China@outlook.com" target="_blank">
               <Mail />
             </Link>
           </Button>

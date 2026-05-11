@@ -11,16 +11,15 @@ export function Agent() {
           </div>
           <h2 className={cn("text-5xl *:font-semibold! space-x-2", robotoSlab.className)}>
             <span className={cn("text-[#bb4d00] dark:text-[#cb6018]", googleSansCode.className)}>???</span>
-            <span>Agent</span>
+            <span>Move MagSafe</span>
           </h2>
         </div>
-        <span className="text-lg">一个基于Tauri+Next.js的桌面端个人助手</span>
-        <span className="text-lg">配置简易，界面美观，使用安全....</span>
+        <span className="text-lg">一个会自己移动的充电器</span>
       </div>
       <div className="flex flex-col justify-end items-end gap-2">
         <span className="text-xl">🪨</span>
         <span className="text-sm text-secondary-foreground">
-          * 目前本人的开发重心，尚未完工
+          * 目前本人的开发重心（也许吧），尚未完工
         </span>
       </div>
     </section>
