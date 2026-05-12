@@ -2,10 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Bot } from "lucide-react";
 import { blogName, siteKeywords } from "@/lib/global";
-import { getArticle } from "@/lib/blog";
+import { getArticle, getAllArticles } from "@/lib/blog"; // 确保导入了获取全部文章的函数
 import { formatDate } from "@/lib/utils";
 import { Markdown } from "@/components/markdown";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
+/**
+ * 解决 "missing generateStaticParams()" 报错
+ */
+export async function generateStaticParams() {
+  // 获取所有文章，生成静态路径清单
+  // 同样建议传入 false 以优化构建速度（如果不加载内容的话）
+  const articles = getAllArticles(false); 
+  
+  return articles.map((article) => ({
+    slug: article.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,
@@ -33,8 +46,11 @@ export default async function Article({
   const article = getArticle(slug);
 
   if(!article) {
-    /** @todo */
-    return <div></div>;
+    return (
+      <div className="page-padding py-20 text-center text-muted-foreground">
+        文章不存在
+      </div>
+    );
   }
 
   return (
@@ -48,7 +64,8 @@ export default async function Article({
             {article.tags.map((tag, i) => (
               <Link
                 href={`/blog/tag/${tag}`}
-                key={i}>
+                key={i}
+                className="hover:text-primary transition-colors">
                 {"#"+ tag}
               </Link>
             ))}
@@ -56,10 +73,10 @@ export default async function Article({
         </div>
         {article.hasAI && (
           <Alert className="rounded-md">
-            <Bot />
+            <Bot className="h-4 w-4" />
             <AlertTitle>本文包含AI生成内容</AlertTitle>
             <AlertDescription>
-              本文内容中有部分内容由AI生成，请仔细甄别
+              本文内容中有部分内容由AI生成,请仔细甄别
             </AlertDescription>
           </Alert>
         )}
