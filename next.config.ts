@@ -2,15 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
-  output: "export",      // 必须：静态导出模式
-  trailingSlash: true,   // 必须：适配 Cloudflare 的路径访问
+  output: "export",      // 💡 核心：告诉 Next.js 只生成静态 HTML/CSS/JS
+  trailingSlash: true,   // 💡 核心：适配 Cloudflare 的目录访问方式
   images: {
-    unoptimized: true,   // 必须：静态导出不支持图片优化
+    unoptimized: true,   // 💡 核心：静态模式不支持图片优化
     remotePatterns: [
       { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/u/**" },
       { protocol: "https", hostname: "serinanya.cn", pathname: "/**" },
-      { protocol: "https", hostname: "yunyoujun.cn", pathname: "/**" },
-      // ... 你其他的远程图片配置保持不变
+      // ...保持你之前的 remotePatterns 列表不变
     ]
   },
   experimental: {
