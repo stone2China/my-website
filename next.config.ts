@@ -2,32 +2,43 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
-  // ❌ 删除或注释掉：output: "export",
-  // ✅ 修改为：
-  output: "standalone", 
   
-  // ❌ 建议删除，静态路径适配在 Worker 模式下通常不需要
-  // trailingSlash: true, 
+  // Cloudflare Workers / OpenNext 环境通常建议使用 standalone
+  output: "standalone", 
 
   images: {
-    // 在 Worker 模式下可以保持 true，除非你配置了专门的图片优化服务
     unoptimized: true, 
     remotePatterns: [
       { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/u/**" },
       { protocol: "https", hostname: "serinanya.cn", pathname: "/**" },
     ]
   },
+
   experimental: {
     optimizePackageImports: ["lucide-react"],
+    // ✅ 告诉 Next.js 16 你的自定义 Webpack 配置需要如何映射到 Turbopack (或者留空强制报错提醒)
+    turbo: {
+      rules: {
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        },
+        "*.abc": {
+          loaders: ["raw-loader"],
+          as: "*.js",
+        }
+      }
+    }
   },
+
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      loader: "@svgr/webpack",
+      use: ["@svgr/webpack"], // 建议用 use 代替 loader
     });
     config.module.rules.push({
       test: /\.abc$/,
-      loader: "raw-loader"
+      use: ["raw-loader"]
     });
     return config;
   },
