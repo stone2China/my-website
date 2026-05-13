@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   output: "standalone", 
 
   images: {
-    // 静态资源优化在 Worker 环境建议关闭，除非有专门的 Loader
+    // 静态资源优化在 Worker 环境建议关闭，以避免构建失败
     unoptimized: true, 
     remotePatterns: [
       { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/u/**" },
