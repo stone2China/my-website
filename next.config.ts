@@ -2,14 +2,19 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
-  output: "export",      // 必须：启用静态导出
-  trailingSlash: true,   // 必须：适配静态路径访问
+  // ❌ 删除或注释掉：output: "export",
+  // ✅ 修改为：
+  output: "standalone", 
+  
+  // ❌ 建议删除，静态路径适配在 Worker 模式下通常不需要
+  // trailingSlash: true, 
+
   images: {
-    unoptimized: true,   // 必须：静态模式不支持图片优化
+    // 在 Worker 模式下可以保持 true，除非你配置了专门的图片优化服务
+    unoptimized: true, 
     remotePatterns: [
       { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/u/**" },
       { protocol: "https", hostname: "serinanya.cn", pathname: "/**" },
-      // ... 其余配置保持不变
     ]
   },
   experimental: {
