@@ -2,15 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
-  // ❌ 删除或注释掉：output: "export",
-  // ✅ 修改为：
   output: "standalone", 
-  
-  // ❌ 建议删除，静态路径适配在 Worker 模式下通常不需要
-  // trailingSlash: true, 
 
   images: {
-    // 在 Worker 模式下可以保持 true，除非你配置了专门的图片优化服务
     unoptimized: true, 
     remotePatterns: [
       { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/u/**" },
@@ -19,7 +13,21 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react"],
+    // ✅ 新增：为 Turbopack 配置自定义 loader 适配
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+        '*.abc': {
+          loaders: ['raw-loader'],
+          as: '*.js',
+        },
+      },
+    },
   },
+  // 保留 webpack 配置以确保向下兼容
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
