@@ -2,41 +2,35 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
+  // 必须：Cloudflare Workers 部署 Next.js 必须开启独立输出
   output: "standalone", 
 
   images: {
+    // 静态资源优化在 Worker 环境建议关闭，除非有专门的 Loader
     unoptimized: true, 
     remotePatterns: [
       { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/u/**" },
       { protocol: "https", hostname: "serinanya.cn", pathname: "/**" },
     ]
   },
+
   experimental: {
     optimizePackageImports: ["lucide-react"],
-    // ✅ 新增：为 Turbopack 配置自定义 loader 适配
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-        '*.abc': {
-          loaders: ['raw-loader'],
-          as: '*.js',
-        },
-      },
-    },
   },
-  // 保留 webpack 配置以确保向下兼容
+
   webpack(config) {
+    // 处理 SVG 文件
     config.module.rules.push({
       test: /\.svg$/,
-      loader: "@svgr/webpack",
+      use: ["@svgr/webpack"],
     });
+
+    // 处理 ABC 乐谱文件：解决日志中的 Unknown module type 错误
     config.module.rules.push({
       test: /\.abc$/,
-      loader: "raw-loader"
+      use: ["raw-loader"],
     });
+
     return config;
   },
 };
