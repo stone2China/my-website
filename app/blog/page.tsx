@@ -1,7 +1,8 @@
-// 1. 这里的 import recommended 也可以删掉了，因为下面不再使用它
+// src/app/blog/page.tsx
+
 import Link from "next/link";
-import { Tag } from "lucide-react"; // BookMarked 和 Rss 也可以删了，因为图标不用了
-import { getAllArticles, getTags } from "@/lib/blog"; // getPostByTitle 也不用了
+import { Tag } from "lucide-react"; 
+import { getAllArticles, getTags } from "@/lib/blog"; 
 import {
   Card,
   CardContent,
@@ -13,18 +14,28 @@ import { getAllNotes } from "@/lib/notes";
 import { BlogTabs } from "./blog-tabs";
 
 export default function BlogOverview() {
-  const posts = getAllArticles(false);
-  const notes = getAllNotes(false);
+  // 1. 获取原始数据
+  const rawPosts = getAllArticles(false);
+  const rawNotes = getAllNotes(false);
+
+  // 2. 关键修复：统一预处理日期，防止 ArticleCard 和 NoteCard 崩溃
+  const posts = rawPosts.map(post => ({
+    ...post,
+    date: post.date instanceof Date ? post.date : new Date(post.date)
+  }));
+
+  const notes = rawNotes.map(note => ({
+    ...note,
+    date: note.date instanceof Date ? note.date : new Date(note.date)
+  }));
 
   return (
     <div className="page-padding flex gap-10">
-      {/* 左侧文章列表保持不变 */}
+      {/* 3. 此时传下去的 posts 和 notes 里的 date 已经是真正的 Date 对象了 */}
       <BlogTabs posts={posts} notes={notes}/>
 
       {/* 右侧侧边栏 */}
       <div className="flex-1/3 flex flex-col gap-7 max-md:hidden">
-        
-        {/* 只保留标签卡片 */}
         <Card className="rounded-md">
           <CardHeader>
             <CardTitle className="flex gap-2 items-center">
@@ -36,15 +47,14 @@ export default function BlogOverview() {
             {getTags().map(({ tag, amount }, i) => (
               <Link
                 href={`/blog/tag/${tag}`}
+                key={i}
                 className="text-nowrap text-secondary-foreground"
-                style={{ fontSize: `${getRelativeNumber(9, 26, amount, posts.length)}pt` }}
-                key={i}>
+                style={{ fontSize: `${getRelativeNumber(9, 26, amount, posts.length)}pt` }}>
                 {"#"+ tag}
               </Link>
             ))}
           </CardContent>
         </Card>
-
       </div>
     </div>
   );
