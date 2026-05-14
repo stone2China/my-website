@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Bot } from "lucide-react";
 import { blogName, siteKeywords } from "@/lib/global";
-import { getArticle, getAllArticles } from "@/lib/blog"; // 确保导入了获取全部文章的函数
+import { getArticle, getAllArticles } from "@/lib/blog"; 
 import { formatDate } from "@/lib/utils";
 import { Markdown } from "@/components/markdown";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -12,8 +12,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
  */
 export async function generateStaticParams() {
   // 获取所有文章，生成静态路径清单
-  // 同样建议传入 false 以优化构建速度（如果不加载内容的话）
-  const articles = getAllArticles(false); 
+  const articles = getAllArticles(false);  
   
   return articles.map((article) => ({
     slug: article.slug,
@@ -53,13 +52,23 @@ export default async function Article({
     );
   }
 
+  // --- 关键修复：确保 article.date 转换为有效的 Date 对象 ---
+  const safeDate = article.date instanceof Date 
+    ? article.date 
+    : new Date(article.date);
+    
+  // 如果日期转换失败（Invalid Date），兜底使用当前时间，防止 getFullYear 报错
+  const finalDate = isNaN(safeDate.getTime()) ? new Date() : safeDate;
+  // -------------------------------------------------------
+
   return (
     <div className="page-padding flex flex-col gap-10">
       <div className="mt-6 flex flex-col gap-12">
         <h1 className="text-4xl font-bold">{article.title}</h1>
         <div className="space-x-4">
           <span className="text-secondary-foreground">By {article.author}</span>
-          <span className="text-yellow-600">{formatDate(article.date)}</span>
+          {/* 传入处理后的 finalDate */}
+          <span className="text-yellow-600">{formatDate(finalDate)}</span>
           <div className="inline-block space-x-2">
             {article.tags.map((tag, i) => (
               <Link

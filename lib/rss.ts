@@ -25,7 +25,7 @@ getAllArticles(true).forEach(article => {
     description: article.excerpt,
     content: article.__content,
     author: [{ name: article.author }],
-    date: article.date,
+    date: article.date, // <--- 原始代码直接赋值
     image: article.photo,
   });
 });
