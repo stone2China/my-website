@@ -13,12 +13,17 @@ import { getRelativeNumber } from "@/lib/utils";
 import { getAllNotes } from "@/lib/notes";
 import { BlogTabs } from "./blog-tabs";
 
+// --- 新增修复配置 ---
+export const dynamic = "force-static"; // 强制页面静态化，防止在边缘节点运行 Node.js 逻辑
+export const revalidate = false;       // 禁用运行时重新验证
+// --------------------
+
 export default function BlogOverview() {
-  // 1. 获取原始数据
+  // 1. 获取原始数据 (这些逻辑将在打包构建阶段在你的电脑/GitHub Action上运行，而不是在 Cloudflare 节点上)
   const rawPosts = getAllArticles(false);
   const rawNotes = getAllNotes(false);
 
-  // 2. 关键修复：统一预处理日期，防止 ArticleCard 和 NoteCard 崩溃
+  // 2. 预处理日期
   const posts = rawPosts.map(post => ({
     ...post,
     date: post.date instanceof Date ? post.date : new Date(post.date)
@@ -29,9 +34,11 @@ export default function BlogOverview() {
     date: note.date instanceof Date ? note.date : new Date(note.date)
   }));
 
+  // 3. 标签逻辑
+  const tags = getTags();
+
   return (
     <div className="page-padding flex gap-10">
-      {/* 3. 此时传下去的 posts 和 notes 里的 date 已经是真正的 Date 对象了 */}
       <BlogTabs posts={posts} notes={notes}/>
 
       {/* 右侧侧边栏 */}
@@ -43,13 +50,13 @@ export default function BlogOverview() {
               标签
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-x-1 text-center">
-            {getTags().map(({ tag, amount }, i) => (
+          <CardContent className="flex flex-wrap gap-x-2 gap-y-1 justify-center">
+            {tags.map(({ tag, amount }, i) => (
               <Link
                 href={`/blog/tag/${tag}`}
                 key={i}
-                className="text-nowrap text-secondary-foreground"
-                style={{ fontSize: `${getRelativeNumber(9, 26, amount, posts.length)}pt` }}>
+                className="text-nowrap text-secondary-foreground hover:text-primary transition-colors"
+                style={{ fontSize: `${getRelativeNumber(9, 20, amount, posts.length)}pt` }}>
                 {"#"+ tag}
               </Link>
             ))}
