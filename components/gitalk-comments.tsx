@@ -11,9 +11,9 @@ export function GitalkComments({
   const gitalkOptions: Gitalk.GitalkOptions = {
     clientID: process.env["NEXT_PUBLIC_GITALK_CLIENT_ID"] ?? "",
     clientSecret: process.env["NEXT_PUBLIC_GITALK_CLIENT_SECRET"] ?? "",
-    repo: "nocp.space-comments",
-    owner: "NriotHrreion",
-    admin: ["NriotHrreion"],
+    repo: "blog-comments",
+    owner: "stone2China",
+    admin: ["stone2China"],
     number: issue
   };
   const containerRef = useRef<HTMLDivElement>(null);
