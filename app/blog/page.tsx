@@ -1,15 +1,6 @@
 // src/app/blog/page.tsx
 
-import Link from "next/link";
-import { Tag } from "lucide-react"; 
-import { getAllArticles, getTags } from "@/lib/blog"; 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle
-} from "@/components/ui/card";
-import { getRelativeNumber } from "@/lib/utils";
+import { getAllArticles } from "@/lib/blog"; 
 import { getAllNotes } from "@/lib/notes";
 import { BlogTabs } from "./blog-tabs";
 
@@ -34,35 +25,9 @@ export default function BlogOverview() {
     date: note.date instanceof Date ? note.date : new Date(note.date)
   }));
 
-  // 3. 标签逻辑
-  const tags = getTags();
-
   return (
     <div className="page-padding flex gap-10">
       <BlogTabs posts={posts} notes={notes}/>
-
-      {/* 右侧侧边栏 */}
-      <div className="flex-1/3 flex flex-col gap-7 max-md:hidden">
-        <Card className="rounded-md">
-          <CardHeader>
-            <CardTitle className="flex gap-2 items-center">
-              <Tag size={20}/>
-              标签
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-wrap gap-x-2 gap-y-1 justify-center">
-            {tags.map(({ tag, amount }, i) => (
-              <Link
-                href={`/blog/tag/${tag}`}
-                key={i}
-                className="text-nowrap text-secondary-foreground hover:text-primary transition-colors"
-                style={{ fontSize: `${getRelativeNumber(9, 20, amount, posts.length)}pt` }}>
-                {"#"+ tag}
-              </Link>
-            ))}
-          </CardContent>
-        </Card>
-      </div>
     </div>
   );
 }

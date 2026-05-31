@@ -6,10 +6,10 @@ import NetlifyLogo from "@/assets/images/netlify.png";
 export function Footer() {
   return (
     <footer className="py-20 text-sm text-center space-y-2">
-      <p>Designed & Maintained by Norcleeh</p>
-      <p>Copyright (c) NriotHrreion {new Date().getFullYear()}</p>
+      <p>Designed & Maintained by stone</p>
+      <p>Copyright (c) stone {new Date().getFullYear()}</p>
       <p className="space-x-6">
-        <Link href="https://github.com/nocpiun/nocp.space">Source Code</Link>
+        <Link href="https://github.com/stone2China/nocp.space">Source Code</Link>
         <Link
           href="https://netlify.com"
           title="本站部署于Netlify"
@@ -22,7 +22,7 @@ export function Footer() {
         </Link>
         <Link
           className="space-x-1"
-          href="https://ipw.cn/ipv6webcheck/?site=nocp.space"
+          href="https://ipw.cn/ipv6webcheck/?site=stone-dev.top"
           title="本站支持IPv6访问"
           target="_blank">
           <Award className="inline-block align-middle stroke-theme-foreground" size={18}/>
@@ -30,7 +30,7 @@ export function Footer() {
         </Link>
         <Link
           className="space-x-1"
-          href="https://ipw.cn/ssl/?site=nocp.space"
+          href="https://ipw.cn/ssl/?site=stone-dev.top"
           title="本站支持SSL安全访问"
           target="_blank">
           <ShieldCheck className="inline-block align-middle stroke-theme-foreground" size={18}/>

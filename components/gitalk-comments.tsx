@@ -11,7 +11,7 @@ export function GitalkComments({
   const gitalkOptions: Gitalk.GitalkOptions = {
     clientID: process.env["NEXT_PUBLIC_GITALK_CLIENT_ID"] ?? "",
     clientSecret: process.env["NEXT_PUBLIC_GITALK_CLIENT_SECRET"] ?? "",
-    repo: "blog-comments",
+    repo: "stone-dev.top-comments",
     owner: "stone2China",
     admin: ["stone2China"],
     number: issue

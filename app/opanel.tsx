@@ -23,7 +23,7 @@ export function OPanel() {
           <span>易用、美观的新一代Minecraft服务器管理面板</span>
         </span>
         <span className="text-sm text-secondary-foreground">
-          * 目前本人最成功的社区开源项目
+          * 一个基于Minecraft服务器的开源管理面板
         </span>
       </div>
     </section>

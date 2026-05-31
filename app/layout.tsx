@@ -14,7 +14,7 @@ import { firaCode, googleSansCode } from "@/lib/fonts";
 export const metadata: Metadata = {
   title: siteName,
   description: siteDescription,
-  authors: [{ name: "NriotHrreion", url: "https://nocp.space" }],
+  authors: [{ name: "stone", url: "https://stone-dev.top" }],
   keywords: siteKeywords,
   icons: "/static/icon.png"
 };

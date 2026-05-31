@@ -25,7 +25,7 @@ export default function Calcium() {
             包含基础计算、变量存储、函数图像、汇率换算、单位换算、辈分称呼计算等功能。
           </p>
           <p className="text-sm text-secondary-foreground">
-            * 本人在高中阶段制作的较为成功的个人项目
+            * 一个功能丰富的多功能网页计算器
           </p>
         </div>
       </div>

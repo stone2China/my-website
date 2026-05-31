@@ -5,23 +5,23 @@ import { getAllArticles } from "./blog";
 const feed = new Feed({
   title: blogName,
   description: blogDescription,
-  id: "https://blog.nocp.space",
-  link: "https://blog.nocp.space",
+  id: "https://blog.stone-dev.top",
+  link: "https://blog.stone-dev.top",
   language: "zh-cn",
-  favicon: "https://nocp.space/icon.png",
-  copyright: `Copyright (c) NriotHrreion ${new Date().getFullYear()}`,
+  favicon: "https://stone-dev.top/icon.png",
+  copyright: `Copyright (c) stone ${new Date().getFullYear()}`,
   feedLinks: {
-    atom: "https://nocp.space/rss/feed.xml",
-    json: "https://nocp.space/rss/feed.json",
+    atom: "https://stone-dev.top/rss/feed.xml",
+    json: "https://stone-dev.top/rss/feed.json",
   },
-  author: { name: "Norcleeh", link: "https://nocp.space" }
+  author: { name: "stone", link: "https://stone-dev.top" }
 });
 
 getAllArticles(true).forEach(article => {
   feed.addItem({
     title: article.title,
-    id: `https://nocp.space/blog/${article.slug}`,
-    link: `https://nocp.space/blog/${article.slug}`,
+    id: `https://stone-dev.top/blog/${article.slug}`,
+    link: `https://stone-dev.top/blog/${article.slug}`,
     description: article.excerpt,
     content: article.__content,
     author: [{ name: article.author }],
