@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import template from "./llms.template.txt";
+import path from "path";
+import fs from "fs";
 import { getAllArticles, Post } from "@/lib/blog";
 import { getAllNotes, Note } from "@/lib/notes";
 import { githubAccount, siteDescription, siteName } from "@/lib/global";
@@ -30,9 +31,16 @@ function formatNoteList(posts: Note[]) {
 }
 
 export function GET() {
+  // 1. 获取 llms 模板文件的绝对路径
+  const filePath = path.join(process.cwd(), "app/llms.txt/llms.template.txt");
+  
+  // 2. 使用 fs 读取文件内容
+  const template = fs.readFileSync(filePath, "utf-8");
+
   const posts = getAllArticles(false);
   const notes = getAllNotes(false);
 
+  // 3. 保持你原有的替换逻辑不变
   const content = template
     .replace("{0}", siteName)
     .replace("{1}", siteDescription)
