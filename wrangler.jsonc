@@ -10,6 +10,12 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "routes": [
+    {
+      "pattern": "/*",
+      "zone_of_authority": true
+    }
+  ],
   "observability": {
     "enabled": true
   }
