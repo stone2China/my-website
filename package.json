@@ -10,9 +10,7 @@
     "deploy": "opennextjs-cloudflare build --webpack && opennextjs-cloudflare deploy"
   },
   "dependencies": {
-    "@cloudflare/workerd-windows-64": "^1.20260508.1",
     "@gsap/react": "^2.1.2",
-    "@next/swc-win32-x64-msvc": "^16.2.7",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-navigation-menu": "^1.2.13",
     "@radix-ui/react-slot": "^1.2.4",
