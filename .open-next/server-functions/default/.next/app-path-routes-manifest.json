@@ -1,0 +1,16 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/_global-error/page": "/_global-error",
+  "/rss/feed.json/route": "/rss/feed.json",
+  "/rss/feed.xml/route": "/rss/feed.xml",
+  "/humans.txt/route": "/humans.txt",
+  "/llms.txt/route": "/llms.txt",
+  "/donate/page": "/donate",
+  "/links/page": "/links",
+  "/page": "/",
+  "/sheets/[src]/page": "/sheets/[src]",
+  "/sheets/page": "/sheets",
+  "/blog/[slug]/page": "/blog/[slug]",
+  "/blog/notes/[slug]/page": "/blog/notes/[slug]",
+  "/blog/page": "/blog"
+}

@@ -5,6 +5,10 @@ import { formatDate } from "@/lib/utils";
 import { Markdown } from "@/components/markdown";
 import { Badge } from "@/components/ui/badge";
 
+// 强制页面静态化，防止在 Cloudflare Workers 上运行时调用 fs
+export const dynamic = "force-static";
+export const revalidate = false;
+
 /**
  * 1. 静态路由参数生成 (Static Site Generation)
  * 解决 "missing generateStaticParams()" 报错

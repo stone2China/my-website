@@ -7,6 +7,10 @@ import { formatDate } from "@/lib/utils";
 import { Markdown } from "@/components/markdown";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
+// 强制页面静态化，防止在 Cloudflare Workers 上运行时调用 fs
+export const dynamic = "force-static";
+export const revalidate = false;
+
 /**
  * 解决 "missing generateStaticParams()" 报错
  */
