@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build --webpack"
+    "deploy": "opennextjs-cloudflare build --webpack && opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -38,6 +38,7 @@
     "yaml-front-matter": "^4.1.1"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.19.9",
     "@eslint/eslintrc": "^3",
     "@stylistic/eslint-plugin": "^4.4.1",
     "@svgr/webpack": "^8.1.0",
