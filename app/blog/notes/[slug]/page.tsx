@@ -5,17 +5,9 @@ import { formatDate } from "@/lib/utils";
 import { Markdown } from "@/components/markdown";
 import { Badge } from "@/components/ui/badge";
 
-// 强制页面静态化，防止在 Cloudflare Workers 上运行时调用 fs
 export const dynamic = "force-static";
-export const revalidate = false;
 
-/**
- * 1. 静态路由参数生成 (Static Site Generation)
- * 解决 "missing generateStaticParams()" 报错
- */
 export async function generateStaticParams() {
-  // 根据 lib/notes.ts，getAllNotes 需要一个布尔值参数
-  // 传入 false 表示不加载详情内容，只获取列表，效率更高
   const notes = getAllNotes(false);
   
   return notes.map((note) => ({
@@ -23,9 +15,6 @@ export async function generateStaticParams() {
   }));
 }
 
-/**
- * 2. 动态元数据生成
- */
 export async function generateMetadata({
   params,
 }: {
@@ -42,9 +31,6 @@ export async function generateMetadata({
   };
 }
 
-/**
- * 3. 页面渲染组件
- */
 export default async function Note({
   params,
 }: {
@@ -53,7 +39,6 @@ export default async function Note({
   const { slug } = await params;
   const note = getNote(slug);
 
-  // 如果找不到笔记（通常在 build 阶段不会发生，因为参数由 generateStaticParams 提供）
   if (!note) {
     return (
       <div className="page-padding py-20 text-center">

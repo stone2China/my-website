@@ -2,21 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Bot } from "lucide-react";
 import { blogName, siteKeywords } from "@/lib/global";
-import { getArticle, getAllArticles } from "@/lib/blog"; // 确保导入了获取全部文章的函数
+import { getArticle, getAllArticles } from "@/lib/blog";
 import { formatDate } from "@/lib/utils";
 import { Markdown } from "@/components/markdown";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-// 强制页面静态化，防止在 Cloudflare Workers 上运行时调用 fs
 export const dynamic = "force-static";
-export const revalidate = false;
 
-/**
- * 解决 "missing generateStaticParams()" 报错
- */
 export async function generateStaticParams() {
-  // 获取所有文章，生成静态路径清单
-  // 同样建议传入 false 以优化构建速度（如果不加载内容的话）
   const articles = getAllArticles(false); 
   
   return articles.map((article) => ({

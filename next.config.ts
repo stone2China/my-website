@@ -2,10 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
-  output: "standalone", 
 
   images: {
-    unoptimized: true, 
+    unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/u/**" },
       { protocol: "https", hostname: "serinanya.cn", pathname: "/**" },
@@ -14,7 +13,6 @@ const nextConfig: NextConfig = {
 
   experimental: {
     optimizePackageImports: ["lucide-react"],
-    // ✅ 删掉之前的 turbo 部分，Webpack 模式不需要它
   },
 
   webpack(config) {

@@ -1,1 +1,0 @@
-globalThis.__RSC_MANIFEST=(globalThis.__RSC_MANIFEST||{});globalThis.__RSC_MANIFEST["/rss/feed.xml/route"]={"moduleLoading":{"prefix":"/_next/"},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"clientModules":{},"entryCSSFiles":{"C:\\Users\\93634\\nocp.space\\app\\rss\\feed.xml\\route":[]},"rscModuleMapping":{},"edgeRscModuleMapping":{}};
