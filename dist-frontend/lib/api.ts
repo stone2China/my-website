@@ -46,10 +46,22 @@ export function parseAssetName(name: string): {
   };
 }
 
-/** 获取所有 releases（按发布时间降序） */
+/** 获取所有 releases（按发布时间降序）—— 直连 GitHub API */
 export async function fetchReleases(perPage = 10): Promise<ReleasesResponse> {
   const res = await axios.get<ReleasesResponse>(`${GITHUB_API}?per_page=${perPage}`);
   return res.data;
+}
+
+/**
+ * 通过本地服务端缓存接口获取 releases。
+ * 服务端会缓存结果并在 5 分钟后自动刷新。
+ */
+export async function fetchCachedReleases(): Promise<ReleasesResponse> {
+  const res = await fetch("/api/dev-sidecar/releases");
+  if (!res.ok) {
+    throw new Error(`Cached releases API returned ${res.status}`);
+  }
+  return res.json();
 }
 
 /** 获取最新的稳定版 release */

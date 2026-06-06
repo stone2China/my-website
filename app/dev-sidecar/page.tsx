@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { DownloadButton } from "@/components/dev-sidecar/download-button";
 import { Spinner } from "@/components/ui/spinner";
 import {
-  fetchReleases,
+  fetchCachedReleases,
   getLatestStableRelease,
   findAsset,
   getArchList,
@@ -66,7 +66,7 @@ export default function DevSidecarPage() {
 
   useEffect(() => {
     setReleasesLoading(true);
-    fetchReleases()
+    fetchCachedReleases()
       .then(setReleases)
       .catch(console.error)
       .finally(() => setReleasesLoading(false));
