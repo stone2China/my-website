@@ -32,14 +32,30 @@ const osOptions = [
   { value: "linux", label: "Linux", icon: Terminal },
 ] as const;
 
+/** 通过 User-Agent 自动检测用户操作系统 */
+function detectOS(): string | null {
+  if (typeof navigator === "undefined") return null;
+  const ua = navigator.userAgent;
+  if (ua.includes("Windows")) return "windows";
+  if (ua.includes("Mac OS")) return "macos";
+  if (ua.includes("Linux")) return "linux";
+  return null;
+}
+
 export default function Home() {
   const [os, setOs] = useState<string | null>(null);
   const [arch, setArch] = useState<string | null>(null);
-  const [mirror, setMirror] = useState<string | null>(MIRROR_PROXIES[0].value);
+  const [mirror, setMirror] = useState<string | null>("__proxy__");
   const [releases, setReleases] = useState<GitHubRelease[] | null>(null);
   const [releasesLoading, setReleasesLoading] = useState(true);
 
   const latestStable = releases ? getLatestStableRelease(releases) : null;
+
+  // 自动检测用户操作系统
+  useEffect(() => {
+    const detected = detectOS();
+    if (detected) setOs(detected);
+  }, []);
 
   // 当 OS 改变时，自动选择推荐架构
   useEffect(() => {
