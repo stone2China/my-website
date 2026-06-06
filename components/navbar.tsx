@@ -24,6 +24,7 @@ const leftList: NavbarItem[] = [
 	{ name: "歌单", url: "/sheets" },
 	{ name: "友链", url: "/links" },
 	{ name: "打赏", url: "/donate" },
+	{ name: "DevSidecar", url: "/dev-sidecar" },
 ];
 
 const rightList: NavbarItem[] = [

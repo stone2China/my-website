@@ -6,7 +6,7 @@ import NetlifyLogo from "@/assets/images/netlify.png";
 export function Footer() {
   return (
     <footer className="py-20 text-sm text-center space-y-2">
-      <p>Designed & Maintained by stone</p>
+      <p>Designed by <Link href="https://nocp.space/" target="_blank">NriotHrreion</Link>, modified by stone</p>
       <p>Copyright (c) stone {new Date().getFullYear()}</p>
       <p className="space-x-6">
         <Link href="https://github.com/stone2China/nocp.space">Source Code</Link>
